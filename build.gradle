@@ -21,6 +21,7 @@ dependencies {
 
     // TestNG for test execution and reporting
     testImplementation 'org.testng:testng:7.4.0'
+
 }
 
 test {

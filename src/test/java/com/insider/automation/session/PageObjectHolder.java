@@ -1,9 +1,12 @@
 package com.insider.automation.session;
 
 import com.insider.automation.pageobjects.web.CareersPage;
+import com.insider.automation.pageobjects.web.HomePage;
+import com.insider.automation.pageobjects.web.JobsPage;
+import com.insider.automation.steps.Hooks;
 import org.openqa.selenium.WebDriver;
 
-public class PageObjectHolder {
+public class PageObjectHolder extends Hooks {
     private final WebDriver driver;
 
     public PageObjectHolder() {
@@ -14,21 +17,30 @@ public class PageObjectHolder {
     }
 
     public static PageObjectHolder getPages() {
-        return PageObjectHolder.LazyHolder.INSTANCE;
+       return PageObjectHolder.LazyHolder.INSTANCE;
     }
 
+    CareersPage careersPage;
+    HomePage homePage;
+    JobsPage jobsPage;
 
-
-
-
-
-    private CareersPage careersLandingPage;
-
-    public CareersPage getCareersLandingPage() {
-        if (careersLandingPage == null) {
-            careersLandingPage = new CareersPage(driver);
+    public CareersPage getCareersPage() {
+        if (careersPage == null) {
+            careersPage = new CareersPage(driver);
         }
-        return careersLandingPage;
+        return careersPage;
+    }
+    public HomePage getHomePage() {
+        if (homePage == null) {
+            homePage = new HomePage(driver);
+        }
+        return homePage;
+    }
+    public JobsPage getJobsPage() {
+        if (jobsPage == null) {
+            jobsPage = new JobsPage(driver);
+        }
+        return jobsPage;
     }
 
 }

@@ -2,15 +2,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="All Test Suite">
     <listeners>
-        <listener class-name="com.insider.automation.testlisten.TestListener" />
+        <listener class-name="com.insider.automation.testlisten.TestListener"/>
+        <listener class-name="org.testng.reporters.JUnitReportReporter"/>
     </listeners>
-    <test verbose="2" preserve-order="true" name="/Users/rashadnasirli/Documents/Insider/web-automation">
+    <test verbose="1" preserve-order="true" name="/Users/rashadnasirli/Documents/Insider/web-automation">
         <parameter name="browser" value="firefox"/>
+        <packages>
+            <package name="com.insider.automation.steps"/>
+        </packages>
         <classes>
-            <class name="com.insider.automation.steps.testWork">
+            <class name="com.insider.automation.steps.HomePageSteps">
                 <methods>
-                    <include name="testit"/>
+                    <exclude name="test2"/>
                 </methods>
+
             </class>
         </classes>
     </test>
