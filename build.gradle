@@ -31,6 +31,6 @@ test {
 
 task testngTests(type: Test) {
     useTestNG() {
-        suites("src/test/resources/testng.xml")
+        suites("src/test/resources/E2E.xml")
     }
 }

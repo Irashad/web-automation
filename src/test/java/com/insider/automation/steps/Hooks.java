@@ -32,7 +32,7 @@ public class Hooks {
 
     @AfterSuite
     public void endUp(){
-     //   DriverHolder.getInstance().getDriver().quit();
+        DriverHolder.getInstance().getDriver().quit();
     }
 
 }
