@@ -1,7 +1,6 @@
 package com.insider.automation.testlisten;
 
 import com.insider.automation.session.DriverHolder;
-import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.openqa.selenium.OutputType;
@@ -18,7 +17,6 @@ public class TestListener implements ITestListener {
     @Override
     public void onTestFailure(ITestResult result) {
         ITestListener.super.onTestFailure(result);
-        Reporter.log("Salam");
         File screenshot = ((TakesScreenshot) DriverHolder.getInstance().getDriver()).getScreenshotAs(OutputType.FILE);
         Path screenshotPath = Paths.get("screenshot.png");
         try {
