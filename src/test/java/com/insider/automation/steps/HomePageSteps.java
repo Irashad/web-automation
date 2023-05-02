@@ -8,15 +8,13 @@ import framework.Location;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.Set;
-
 
 public class HomePageSteps extends BaseSteps {
     @Test(priority = 1)
     public void HomePageTest() {
 
         // test 1 validate home page loaded
-        HomePage homePage =getPages().getHomePage().openLandingPage();
+        HomePage homePage = getPages().getHomePage().openLandingPage();
         Assert.assertTrue(homePage.isLoaded());
         helper.getAcceptAllCookies().click();
 
@@ -52,15 +50,12 @@ public class HomePageSteps extends BaseSteps {
         //test 6 filter by location
         /**
          * Selecting by Select class doesn't working in Firefox - needs more investigation - hence used different approach to support both firefox chrome:
-         *
          * WebElement selectElement = DriverHolder.getInstance().waitForElementPresent(By.name("filter-by-location"), 10);
          * selectElement.click();
          * Select select = new Select(selectElement);
          * select.selectByVisibleText("Istanbul, Turkey");
-         *
          * */
 
-//        jobsPage.isFilterByLocationOptionsLoaded();
         Assert.assertTrue(jobsPage.isFilterByLocationOptionsLoaded(), "options for location filter didn't loaded with in 20 seconds");
         jobsPage.getFilterByLocationContainer().click();
         jobsPage.chooseLocation(Location.TR);
@@ -70,18 +65,8 @@ public class HomePageSteps extends BaseSteps {
         String mainWindowHandle = DriverHolder.getInstance().getDriver().getWindowHandle();
         helper.scrollDown();
         helper.clickWithJs(jobsPage.getApplyNowButton());
-
         Assert.assertTrue(DriverHolder.getInstance().waitForNumberofWindowsToBe(2, 8));
-
-        Set<String> windowHandles = DriverHolder.getInstance().getDriver().getWindowHandles();
-        // Loop through the window handles and switch to the new one
-        for (String handle : windowHandles) {
-            if (!handle.equals(mainWindowHandle)) {
-                DriverHolder.getInstance().getDriver().switchTo().window(handle);
-                String anotherWindow = DriverHolder.getInstance().getDriver().getWindowHandle();
-                break;
-            }
-        }
+        helper.switchWindowNextTab(mainWindowHandle);
 
         //Assert we are redirected to jobs.lever.co website
         Assert.assertTrue(DriverHolder.getInstance().waitForUrlContains("jobs.lever.co/useinsider", 10));

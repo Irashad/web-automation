@@ -9,13 +9,5 @@
         <packages>
             <package name="com.insider.automation.steps"/>
         </packages>
-        <classes>
-            <class name="com.insider.automation.steps.HomePageSteps">
-                <methods>
-                    <exclude name="justtest"/>
-                </methods>
-
-            </class>
-        </classes>
     </test>
 </suite>
