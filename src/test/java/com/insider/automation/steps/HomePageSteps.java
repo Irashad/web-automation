@@ -15,6 +15,7 @@ import java.util.Set;
 public class HomePageSteps extends BaseSteps {
     @Test(priority = 1)
     public void HomePageTest() {
+
         // test 1 validate home page loaded
         HomePage homePage = PageObjectHolder.getPages().getHomePage().openLandingPage();
         Assert.assertTrue(homePage.isLoaded());
@@ -49,7 +50,7 @@ public class HomePageSteps extends BaseSteps {
         JobsPage jobsPage = PageObjectHolder.getPages().getJobsPage();
         jobsPage.getSeeAllQaJob().click();
 
-        //test 6
+        //test 6 filter by location
         /**
          * Selecting by Select class doesn't working in Firefox - needs more investigation - hence used different approach to support both firefox chrome:
          *
@@ -60,20 +61,18 @@ public class HomePageSteps extends BaseSteps {
          *
          * */
 
-        jobsPage.isFilterByLocationOptionsLoaded();
-        int filterByLocationOptionSize = jobsPage.filterByLocation().size();
-        System.out.println("url  elementler sayi selectde bu qederdir " + filterByLocationOptionSize);
-
+//        jobsPage.isFilterByLocationOptionsLoaded();
+        Assert.assertTrue(jobsPage.isFilterByLocationOptionsLoaded(), "options for location filter didn't loaded with in 20 seconds");
         jobsPage.getFilterByLocationContainer().click();
         jobsPage.chooseLocation(Location.TR);
 
 
         //test 8 click apply now  and verify new tab opened with expected pre url
         String mainWindowHandle = DriverHolder.getInstance().getDriver().getWindowHandle();
-
         helper.scrollDown();
         helper.clickWithJs(jobsPage.getApplyNowButton());
-        DriverHolder.getInstance().waitForNumberofWindowsToBe(2, 8);
+
+        Assert.assertTrue(DriverHolder.getInstance().waitForNumberofWindowsToBe(2, 8));
 
         Set<String> windowHandles = DriverHolder.getInstance().getDriver().getWindowHandles();
         // Loop through the window handles and switch to the new one
@@ -85,8 +84,8 @@ public class HomePageSteps extends BaseSteps {
             }
         }
 
-        DriverHolder.getInstance().waitForUrlContains("jobs.lever.co/useinsider", 10);
-        String actualUrl = DriverHolder.getInstance().getDriver().getCurrentUrl();
+        //Assert we are redirected to jobs.lever.co website
+        Assert.assertTrue(DriverHolder.getInstance().waitForUrlContains("jobs.lever.co/useinsider", 10));
     }
 
 }

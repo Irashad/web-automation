@@ -33,7 +33,7 @@ public class JobsPage {
     }
 
     public List<WebElement> filterByLocation() {
-        return DriverHolder.getInstance().numberOfElementsToBeMoreThan(filterByLocationOptions, 4, 18);
+        return DriverHolder.getInstance().numberOfElementsToBeMoreThan(filterByLocationOptions, 4, 20);
     }
 
     public boolean isFilterByLocationOptionsLoaded() {
