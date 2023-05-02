@@ -19,7 +19,7 @@ this will call the gradle task which is registered as 'EndToEnd'. Then EndToEnd 
 4. We can also use "Harmcest.Matchers" library for better assertion experience
 5. We should definitely widen gradle tasks. e.g SmokeTest,FullRegression etc. in order to execute this tasks either for daily health checks or full regression before release
 6. We can use TeamCity to trigger jobs as per  schedule
-7. EC2 instances to divide nodes. This will be very helpful when there is parallel execution of tests as well as to schedule jobs
+7. EC2 instances to divide nodes. This will be very helpful when there is parallel execution of tests as well as to schedule jobs on different nodes
 8. Docker for managing test environment,its speed because containers are lightweight,  with Docker container its way much easier to maintain the tests in any environment and + Isolation
 9. BrowserStack to execute web tests in different mobile devices 
 10. Cucumber to make scenarios more readable, reusable steps, It is well going with CucumberReport+TeamCity
