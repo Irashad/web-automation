@@ -28,3 +28,4 @@ this will call the gradle task which is registered as 'EndToEnd'. Then EndToEnd 
 13. Creating tags and fixing test code bugs for our test project in every release - so we will have stable runs.
 14. We can separate the components from page objects so we can reuse them in between many page objects. Example Top Navigation bar in useinsider.com
 15. We can add test groups to group the tests in testng.xml (in our case its E2E.xml) - it will help us to group the same type of tests. e.g smoke tests.
+16. We could have DB connection utils in order to execute SQL queries to verify tests on Database end
