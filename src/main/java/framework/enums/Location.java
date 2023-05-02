@@ -1,4 +1,4 @@
-package framework;
+package framework.enums;
 
 import java.util.NoSuchElementException;
 import java.util.stream.Stream;

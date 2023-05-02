@@ -4,7 +4,7 @@ import com.insider.automation.pageobjects.web.CareersPage;
 import com.insider.automation.pageobjects.web.HomePage;
 import com.insider.automation.pageobjects.web.JobsPage;
 import com.insider.automation.session.DriverHolder;
-import framework.Location;
+import framework.enums.Location;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

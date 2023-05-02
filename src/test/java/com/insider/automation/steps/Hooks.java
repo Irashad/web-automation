@@ -1,7 +1,7 @@
 package com.insider.automation.steps;
 
 import com.insider.automation.session.DriverHolder;
-import framework.Browsers;
+import framework.enums.Browsers;
 import framework.driver.config.InsiderDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.chrome.ChromeDriver;

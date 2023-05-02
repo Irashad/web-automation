@@ -1,7 +1,7 @@
 package com.insider.automation.pageobjects.web;
 
 import com.insider.automation.session.DriverHolder;
-import framework.Location;
+import framework.enums.Location;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
