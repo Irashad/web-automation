@@ -10,10 +10,41 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    // Selenium WebDriver
+    implementation 'org.seleniumhq.selenium:selenium-java:4.1.0'
+
+    // WebDriverManager to automatically download and setup WebDriver binaries
+    implementation 'io.github.bonigarcia:webdrivermanager:5.0.3'
+
+    implementation 'org.jooq:joox-java-6:1.6.2'
+
+
+    // TestNG for test execution and reporting
+    testImplementation 'org.testng:testng:7.4.0'
+
 }
 
 test {
-    useJUnitPlatform()
+    useTestNG()
 }
+
+static String getBrowser() {
+    return System.getenv('browser')
+}
+
+task testngTests(type: Test) {
+    useTestNG() {
+        suites("src/test/resources/E2E.xml")
+    }
+
+
+}
+
+task myCustomTask {
+    doLast {
+        def mybrowser = project.hasProperty('browser') ? project.getProperty('browser'): System.getenv('browser')
+
+    }
+
+}
+
