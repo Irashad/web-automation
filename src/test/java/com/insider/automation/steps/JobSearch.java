@@ -39,10 +39,9 @@ public class JobSearch extends BaseSteps {
         careersPage.seeAllTeams();
 
         // test 4 click QA Assurance:
-        careersPage.goToQaJobTitle();
+        JobsPage jobsPage = careersPage.goToQaJobTitle();
 
         // test 5 QA page. Click see all qa job
-        JobsPage jobsPage = getPages().getJobsPage();
         jobsPage.getSeeAllQaJob().click();
 
         //test 6 filter by location
@@ -52,8 +51,7 @@ public class JobSearch extends BaseSteps {
 
         //test 8 click apply now  and verify new tab opened with expected pre-url
         String mainWindowHandle = DriverHolder.getInstance().getDriver().getWindowHandle();
-        helper.scrollDown();
-        helper.clickWithJs(jobsPage.getApplyNowButton());
+        jobsPage.clickApllyButtonWithJS();
         Assert.assertTrue(DriverHolder.getInstance().waitForNumberofWindowsToBe(2, 8));
 
         helper.switchWindowNextTab(mainWindowHandle);

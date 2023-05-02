@@ -1,6 +1,7 @@
 package com.insider.automation.pageobjects.web;
 
 import com.insider.automation.session.DriverHolder;
+import com.insider.automation.utils.Helper;
 import framework.enums.Location;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,9 +12,11 @@ import java.util.List;
 
 public class JobsPage {
     private final WebDriver driver;
+    private Helper helper;
 
     public JobsPage(WebDriver driver) {
         this.driver = driver;
+        helper = new Helper();
     }
 
     private final By applyNowButton = By.cssSelector("section#career-position-list a");
@@ -45,6 +48,10 @@ public class JobsPage {
 
     public WebElement getApplyNowButton() {
         return DriverHolder.getInstance().waitForElementClickable(applyNowButton, 10);
+    }
+    public void clickApllyButtonWithJS(){
+        helper.scrollDown();
+        helper.clickWithJs(getApplyNowButton());
     }
 
 }
