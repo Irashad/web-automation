@@ -23,7 +23,7 @@ this will call the gradle task which is registered as 'EndToEnd'. Then EndToEnd 
 8. Docker for managing test environment,its speed because containers are lightweight,  with Docker container its way much easier to maintain the tests in any environment and + Isolation
 9. BrowserStack to execute web tests in different mobile devices 
 10. Cucumber to make scenarios more readable, reusable steps, It is well going with CucumberReport+TeamCity
-11. We can widem the Utils library and make its Jar file  and then add it to our project as external tool.
+11. We can widen the Utils library and make its Jar file  and then add it to our project as external tool.
 12. Would be better if we  implement sonarcloud to our project  as it helps developers, automation engineers to understand the code smells, Security issues and fix them 
 13. Creating tags and fixing test code bugs for our test project in every release - so we will have stable runs.
 14. We can separate the components from page objects so we can reuse them in between many page objects. Example Top Navigation bar in useinsider.com
