@@ -10,9 +10,7 @@ public class Hooks {
     @BeforeSuite
     public void setUp() {
         InsiderDriver.getInstance().setBrowser();
-        new DriverHolder();
         DriverHolder.getInstance().getDriver().manage().window().maximize();
-
     }
 
     @AfterSuite
