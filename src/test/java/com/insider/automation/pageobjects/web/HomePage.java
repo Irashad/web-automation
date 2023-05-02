@@ -1,5 +1,6 @@
 package com.insider.automation.pageobjects.web;
 
+import framework.enums.Domain;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,7 +31,7 @@ public class HomePage {
     }
 
     public HomePage openLandingPage() {
-        driver.get("https://useinsider.com/");
+        driver.get(Domain.BASE_URL.getDomainUrl());
         return new HomePage(driver);
     }
 }
