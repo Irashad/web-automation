@@ -18,4 +18,4 @@ export browser=$browser_value
 echo "The $browser_name is: ${browser_value}"
 
 #./gradlew myCustomTask -Pbrowser="$browser_value"
-./gradlew clean testngTests --console=plain --debug | grep "url"
+./gradlew clean EndToEnd

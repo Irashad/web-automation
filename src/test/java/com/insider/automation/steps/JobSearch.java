@@ -9,9 +9,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-public class HomePageSteps extends BaseSteps {
+public class JobSearch extends BaseSteps {
     @Test(priority = 1)
-    public void HomePageTest() {
+    public void endToEndTestsForJobSearch() {
 
         // test 1 validate home page loaded
         HomePage homePage = getPages().getHomePage().openLandingPage();
@@ -43,32 +43,23 @@ public class HomePageSteps extends BaseSteps {
         helper.scrollInView(careersPage.qaJobTitle(), true);
         helper.clickWithJs(careersPage.qaJobTitle());
 
-        // test 5 QA page. click see all qa job
+        // test 5 QA page. Click see all qa job
         JobsPage jobsPage = getPages().getJobsPage();
         jobsPage.getSeeAllQaJob().click();
 
         //test 6 filter by location
-        /**
-         * Selecting by Select class doesn't working in Firefox - needs more investigation - hence used different approach to support both firefox chrome:
-         * WebElement selectElement = DriverHolder.getInstance().waitForElementPresent(By.name("filter-by-location"), 10);
-         * selectElement.click();
-         * Select select = new Select(selectElement);
-         * select.selectByVisibleText("Istanbul, Turkey");
-         * */
-
         Assert.assertTrue(jobsPage.isFilterByLocationOptionsLoaded(), "options for location filter didn't loaded with in 20 seconds");
         jobsPage.getFilterByLocationContainer().click();
         jobsPage.chooseLocation(Location.TR);
 
 
-        //test 8 click apply now  and verify new tab opened with expected pre url
+        //test 8 click apply now  and verify new tab opened with expected pre-url
         String mainWindowHandle = DriverHolder.getInstance().getDriver().getWindowHandle();
         helper.scrollDown();
         helper.clickWithJs(jobsPage.getApplyNowButton());
         Assert.assertTrue(DriverHolder.getInstance().waitForNumberofWindowsToBe(2, 8));
-        helper.switchWindowNextTab(mainWindowHandle);
 
-        //Assert we are redirected to jobs.lever.co website
+        helper.switchWindowNextTab(mainWindowHandle);
         Assert.assertTrue(DriverHolder.getInstance().waitForUrlContains("jobs.lever.co/useinsider", 10));
     }
 

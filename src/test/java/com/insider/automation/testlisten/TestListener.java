@@ -22,7 +22,7 @@ public class TestListener implements ITestListener {
         Path screenshotPath = Paths.get("screenshot.png");
         try {
             Files.copy(screenshot.toPath(), screenshotPath);
-            Reporter.log("<a href='" + "/Users/rashadnasirli/Documents/Insider/web-automation/screenshot.png" + "'> <img src='" + "/Users/rashadnasirli/Documents/Insider/web-automation/screenshot.png" + "' height='100' width='100'/> </a>");
+            Reporter.log("<a href='" + "/screenshot.png" + "'> <img src='" + "screenshot.png" + "' height='100' width='100'/> </a>");
         } catch (IOException e) {
             e.printStackTrace();
         }

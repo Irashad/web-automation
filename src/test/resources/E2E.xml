@@ -6,8 +6,8 @@
         <listener class-name="org.testng.reporters.JUnitReportReporter"/>
     </listeners>
     <test verbose="1" name="/Users/rashadnasirli/Documents/Insider/web-automation">
-        <packages>
-            <package name="com.insider.automation.steps"/>
-        </packages>
+       <classes>
+           <class name="com.insider.automation.steps.JobSearch"/>
+       </classes>
     </test>
 </suite>
