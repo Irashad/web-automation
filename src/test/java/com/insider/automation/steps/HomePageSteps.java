@@ -4,7 +4,6 @@ import com.insider.automation.pageobjects.web.CareersPage;
 import com.insider.automation.pageobjects.web.HomePage;
 import com.insider.automation.pageobjects.web.JobsPage;
 import com.insider.automation.session.DriverHolder;
-import com.insider.automation.session.PageObjectHolder;
 import framework.Location;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -17,13 +16,13 @@ public class HomePageSteps extends BaseSteps {
     public void HomePageTest() {
 
         // test 1 validate home page loaded
-        HomePage homePage = PageObjectHolder.getPages().getHomePage().openLandingPage();
+        HomePage homePage =getPages().getHomePage().openLandingPage();
         Assert.assertTrue(homePage.isLoaded());
         helper.getAcceptAllCookies().click();
 
         // test 2.2 validate careers page opening when clicking
         homePage.getMoreMenu().click();
-        CareersPage careersPage = PageObjectHolder.getPages().getHomePage().goToCareersPage();
+        CareersPage careersPage = getPages().getHomePage().goToCareersPage();
         Assert.assertTrue(careersPage.isLoaded());
 
         // test 2.3 validate life insider block is opened
@@ -47,7 +46,7 @@ public class HomePageSteps extends BaseSteps {
         helper.clickWithJs(careersPage.qaJobTitle());
 
         // test 5 QA page. click see all qa job
-        JobsPage jobsPage = PageObjectHolder.getPages().getJobsPage();
+        JobsPage jobsPage = getPages().getJobsPage();
         jobsPage.getSeeAllQaJob().click();
 
         //test 6 filter by location

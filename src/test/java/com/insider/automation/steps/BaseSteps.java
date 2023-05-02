@@ -3,13 +3,15 @@ package com.insider.automation.steps;
 import com.insider.automation.session.PageObjectHolder;
 import com.insider.automation.utils.Helper;
 
-public class BaseSteps extends Hooks{
-     Helper helper;
-    // PageObjectHolder pages;
+public class BaseSteps extends Hooks {
 
-    public BaseSteps(){
+    Helper helper;
+    public BaseSteps() {
         helper = new Helper();
-     //   pages = PageObjectHolder.getPages();
+
     }
 
+    public PageObjectHolder getPages(){
+        return PageObjectHolder.getInstance();
+    }
 }

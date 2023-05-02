@@ -3,10 +3,9 @@ package com.insider.automation.session;
 import com.insider.automation.pageobjects.web.CareersPage;
 import com.insider.automation.pageobjects.web.HomePage;
 import com.insider.automation.pageobjects.web.JobsPage;
-import com.insider.automation.steps.Hooks;
 import org.openqa.selenium.WebDriver;
 
-public class PageObjectHolder extends Hooks {
+public class PageObjectHolder   {
     private final WebDriver driver;
 
     public PageObjectHolder() {
@@ -15,9 +14,8 @@ public class PageObjectHolder extends Hooks {
     private static class LazyHolder {
         static final PageObjectHolder INSTANCE = new PageObjectHolder();
     }
-
-    public static PageObjectHolder getPages() {
-       return PageObjectHolder.LazyHolder.INSTANCE;
+    public static PageObjectHolder getInstance() {
+        return PageObjectHolder.LazyHolder.INSTANCE;
     }
 
     CareersPage careersPage;

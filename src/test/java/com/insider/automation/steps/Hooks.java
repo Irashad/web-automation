@@ -1,18 +1,16 @@
 package com.insider.automation.steps;
 
 import com.insider.automation.session.DriverHolder;
+import com.insider.automation.session.PageObjectHolder;
 import framework.Browsers;
 import framework.driver.config.InsiderDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.chromium.ChromiumDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.safari.SafariDriver;
-import org.testng.ITestContext;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 public class Hooks {
     private WebDriver driver;
@@ -35,11 +33,16 @@ public class Hooks {
         }
     }
 
-    @BeforeMethod
+    //PageObjectHolder pages;
+
+    @BeforeSuite
     public void setUp() {
         setBrowser();
         new DriverHolder();
         DriverHolder.getInstance().getDriver().manage().window().maximize();
+   //    pages = PageObjectHolder.getInstance();
+
+
     }
 
     @AfterSuite
