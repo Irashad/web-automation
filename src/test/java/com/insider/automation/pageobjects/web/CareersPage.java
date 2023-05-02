@@ -1,15 +1,18 @@
 package com.insider.automation.pageobjects.web;
 
 import com.insider.automation.session.DriverHolder;
+import com.insider.automation.utils.Helper;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class CareersPage {
     private final WebDriver driver;
+    private Helper helper;
 
     public CareersPage(WebDriver driver) {
         this.driver = driver;
+        this.helper = new Helper();
     }
 
     private final By locationsBlock = By.cssSelector("#location-slider [class='glide__slides']");
@@ -55,4 +58,14 @@ public class CareersPage {
         return DriverHolder.getInstance().waitForElementClickable(QAJobTitle, 10);
     }
 
+    public JobsPage goToQaJobTitle(){
+        helper.scrollInView(qaJobTitle(), true);
+        helper.clickWithJs(qaJobTitle());
+      return new JobsPage(driver);
+    }
+
+    public void seeAllTeams(){
+        helper.scrollInView(getSeeAllTeams(), false);
+        helper.clickWithJs(getSeeAllTeams());
+    }
 }

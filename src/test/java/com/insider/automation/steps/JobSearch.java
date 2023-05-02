@@ -35,13 +35,11 @@ public class JobSearch extends BaseSteps {
         int teamsElementListSize = careersPage.getSizeOfTeamsBlock();
         Assert.assertTrue(helper.sizeIsBiggerThanZero(teamsElementListSize));
 
-        // test 3 click see all jobs
-        helper.scrollInView(careersPage.getSeeAllTeams(), false);
-        helper.clickWithJs(careersPage.getSeeAllTeams());
+        // test 3 click see all teams
+        careersPage.seeAllTeams();
 
         // test 4 click QA Assurance:
-        helper.scrollInView(careersPage.qaJobTitle(), true);
-        helper.clickWithJs(careersPage.qaJobTitle());
+        careersPage.goToQaJobTitle();
 
         // test 5 QA page. Click see all qa job
         JobsPage jobsPage = getPages().getJobsPage();
@@ -51,7 +49,6 @@ public class JobSearch extends BaseSteps {
         Assert.assertTrue(jobsPage.isFilterByLocationOptionsLoaded(), "options for location filter didn't loaded with in 20 seconds");
         jobsPage.getFilterByLocationContainer().click();
         jobsPage.chooseLocation(Location.TR);
-
 
         //test 8 click apply now  and verify new tab opened with expected pre-url
         String mainWindowHandle = DriverHolder.getInstance().getDriver().getWindowHandle();
