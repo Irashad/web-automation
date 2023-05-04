@@ -2,6 +2,7 @@
 
 1. To run the test in different browsers execute this in command line:
 `./runTests.sh browser=firefox` or `./runTests.sh browser=chrome`
+you can also just run `'./runTests.sh'` it will run chrome by default if you don't pass any argument.
 currently for demo purpose Chrome and Firefox available
 2. Test type is E2E
 3. All test task succeed
