@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="Insider - Page Functionality">
     <listeners>
-        <listener class-name="com.insider.automation.testlisten.TestListener"/>
-        <listener class-name="org.testng.reporters.JUnitReportReporter"/>
+        <listener class-name="com.insider.automation.reporter.ExtentReportListener" />
     </listeners>
     <test verbose="1" name="/Users/rashadnasirli/Documents/Insider/web-automation">
        <classes>

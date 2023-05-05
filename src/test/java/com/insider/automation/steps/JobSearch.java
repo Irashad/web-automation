@@ -12,7 +12,6 @@ import org.testng.annotations.Test;
 public class JobSearch extends BaseSteps {
     @Test(priority = 1)
     public void endToEndTestsForJobSearch() {
-
         // test 1 validate home page loaded
         HomePage homePage = getPages().getHomePage().openLandingPage();
         Assert.assertTrue(homePage.isLoaded());
