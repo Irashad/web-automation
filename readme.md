@@ -6,8 +6,8 @@ you can also just run `'./runTests.sh'` it will run chrome by default if you don
 currently for demo purpose Chrome and Firefox available
 2. Test type is E2E
 3. All test task succeed
-4. Selecting by Select class for the given Jobs Page doesn't working in Firefox - need more investigation - hence used different approach to support both firefox chrome
-3. Screenshot taken within onTestFailure() method (Currently unable to make this screenshot embed to TestNG report - needs further investigation. or we could use Allure,ExtentReport or cucumber report whenever there is enough time). Instead it will add the screenshot to project directory)
+4. Screenshot is being taken whenever test get fail + adding it to test report
+5. Selecting by Select class for the given Jobs Page doesn't working in Firefox - need more investigation - hence used different approach to support both firefox chrome
 
 ## Current Workflow
 when we call `./runTests.sh browser=firefox` from terminal it will execute ./runtests.sh with browser parameter.
