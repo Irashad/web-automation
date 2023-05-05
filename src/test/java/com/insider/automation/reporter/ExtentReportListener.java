@@ -6,6 +6,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.insider.automation.utils.Screenshot;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
@@ -13,15 +14,20 @@ import org.testng.ITestResult;
 import java.io.IOException;
 
 public class ExtentReportListener implements ITestListener {
-    private ExtentReports extent = new ExtentReports();
+    private ExtentReports extent;
     private ExtentTest test;
 
+    private void createExtentReport(){
+        extent = new ExtentReports();
+    }
     @Override
     public void onStart(ITestContext context) {
+        createExtentReport();
         String fileName = "Extent_" + context.getSuite().getName() + ".html";
         ExtentSparkReporter sparkReporter = new ExtentSparkReporter(fileName);
         sparkReporter.config().setDocumentTitle("Automation Report");
         extent.attachReporter(sparkReporter);
+
     }
 
     @Override

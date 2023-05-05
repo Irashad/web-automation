@@ -1,4 +1,4 @@
-package com.insider.automation.reporter;
+package com.insider.automation.utils;
 
 import com.insider.automation.session.DriverHolder;
 import org.openqa.selenium.OutputType;
