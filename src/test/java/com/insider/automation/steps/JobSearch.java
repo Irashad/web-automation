@@ -1,8 +1,11 @@
 package com.insider.automation.steps;
 
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import com.insider.automation.pageobjects.web.CareersPage;
 import com.insider.automation.pageobjects.web.HomePage;
 import com.insider.automation.pageobjects.web.JobsPage;
+import com.insider.automation.reporter.ExtentReportListener;
 import com.insider.automation.session.DriverHolder;
 import framework.enums.Location;
 import org.testng.Assert;
@@ -12,16 +15,21 @@ import org.testng.annotations.Test;
 public class JobSearch extends BaseSteps {
     @Test(priority = 1)
     public void homePageTest() {
+        ExtentTest test = ExtentReportListener.getExtentTestInstance();
+        test.log(Status.INFO,"Home page test has been started");
+
         HomePage homePage = getPages().getHomePage().openLandingPage();
         Assert.assertTrue(homePage.isLoaded());
         helper.getAcceptAllCookies().click();
         homePage.getMoreMenu().click();
         homePage.goToCareersPage();
-
     }
 
     @Test(priority = 2,dependsOnMethods = "homePageTest")
     public void careersPageTest() {
+        ExtentTest test = ExtentReportListener.getExtentTestInstance();
+        test.log(Status.INFO,"Careers page test has been started");
+
         CareersPage careersPage = getPages().getCareersPage();
         Assert.assertTrue(careersPage.isLoaded());
 

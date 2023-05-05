@@ -17,9 +17,12 @@ public class ExtentReportListener implements ITestListener {
     private ExtentReports extent;
     private ExtentTest test;
 
-    private void createExtentReport(){
-        extent = new ExtentReports();
-    }
+    public static ExtentTest extentTestInstance;
+
+    private void createExtentReport(){extent = new ExtentReports();}
+
+    public static ExtentTest getExtentTestInstance() {return extentTestInstance;}
+
     @Override
     public void onStart(ITestContext context) {
         createExtentReport();
@@ -27,12 +30,12 @@ public class ExtentReportListener implements ITestListener {
         ExtentSparkReporter sparkReporter = new ExtentSparkReporter(fileName);
         sparkReporter.config().setDocumentTitle("Automation Report");
         extent.attachReporter(sparkReporter);
-
     }
 
     @Override
     public void onTestStart(ITestResult result) {
         test = extent.createTest(result.getMethod().getMethodName());
+        extentTestInstance = test;
     }
 
     @Override
