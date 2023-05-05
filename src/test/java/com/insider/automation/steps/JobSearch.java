@@ -20,7 +20,7 @@ public class JobSearch extends BaseSteps {
 
     }
 
-    @Test(priority = 2)
+    @Test(priority = 2,dependsOnMethods = "homePageTest")
     public void careersPageTest() {
         CareersPage careersPage = getPages().getCareersPage();
         Assert.assertTrue(careersPage.isLoaded());
@@ -38,7 +38,7 @@ public class JobSearch extends BaseSteps {
 
     }
 
-    @Test(priority = 3)
+    @Test(priority = 3,dependsOnMethods = "careersPageTest" )
     public void jobsPageTest() {
         JobsPage jobsPage = getPages().getCareersPage().goToQaJobTitle();
         jobsPage.getSeeAllQaJob().click();

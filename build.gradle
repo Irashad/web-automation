@@ -35,6 +35,5 @@ tasks.register('EndToEnd', Test) {
         suites("src/test/resources/E2E.xml")
     }
 
-
 }
 
