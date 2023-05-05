@@ -50,13 +50,10 @@ public class Helper {
     }
 
     public void switchWindowNextTab(String mainWindowHandle) {
-
         Set<String> windowHandles = DriverHolder.getInstance().getDriver().getWindowHandles();
-        for (String handle : windowHandles) {
-            if (!handle.equals(mainWindowHandle)) {
-                DriverHolder.getInstance().getDriver().switchTo().window(handle);
-                break;
-            }
-        }
+        windowHandles.stream()
+                .filter((handle) -> !handle.equals(mainWindowHandle))
+                .findFirst()
+                .ifPresent(handle -> DriverHolder.getInstance().getDriver().switchTo().window(handle));
     }
 }
