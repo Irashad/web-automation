@@ -46,7 +46,6 @@ public class JobSearch extends BaseSteps {
 
         Assert.assertTrue(jobsPage.isFilterByLocationOptionsLoaded(), "options for location filter didn't loaded with in 20 seconds");
 
-        getReportLogger().log(Status.INFO,"Selecting  by Select class doesn't working on this element. Using different method");
         jobsPage.getFilterByLocationContainer().click();
         jobsPage.chooseLocation(Location.TR);
 
