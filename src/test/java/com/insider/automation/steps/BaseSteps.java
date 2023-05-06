@@ -14,6 +14,8 @@ public class BaseSteps extends Hooks {
 
     }
 
+
+
     public PageObjectHolder getPages() {
         return PageObjectHolder.getInstance();
     }

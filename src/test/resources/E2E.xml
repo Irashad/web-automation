@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Insider - Page Functionality">
+    <groups>
+        <run>
+            <include name="Setup"/>
+        </run>
+    </groups>
+
     <listeners>
-        <listener class-name="com.insider.automation.reporter.ExtentReportListener" />
+        <listener class-name="com.insider.automation.reporter.ExtentReportListener"/>
     </listeners>
+
+
     <test verbose="1" name="/Users/rashadnasirli/Documents/Insider/web-automation">
-       <classes>
-           <class name="com.insider.automation.steps.JobSearch"/>
-       </classes>
+
+        <groups>
+            <run>
+                <include name="JobSearchEndToEnd"/>
+            </run>
+        </groups>
+
+        <classes>
+            <class name="com.insider.automation.steps.HomeSteps"/>
+            <class name="com.insider.automation.steps.CareersSteps"/>
+            <class name="com.insider.automation.steps.JobsSteps"/>
+        </classes>
+
     </test>
 </suite>
