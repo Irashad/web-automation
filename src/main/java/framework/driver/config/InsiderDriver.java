@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
+import java.util.Optional;
+
 public class InsiderDriver {
     public static WebDriver driver;
 
@@ -23,7 +25,7 @@ public class InsiderDriver {
     }
 
     public void setBrowser() {
-        String envBrowser = System.getenv("browser");
+      String envBrowser =   Optional.ofNullable(System.getenv("browser")).orElse("chrome");
 
         switch (Browsers.get(envBrowser)) {
             case CHROME:
